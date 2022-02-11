@@ -13,6 +13,9 @@
 		EC1DD49227B6D97E003CF91D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC1DD49127B6D97E003CF91D /* Assets.xcassets */; };
 		EC1DD49527B6D97E003CF91D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC1DD49427B6D97E003CF91D /* Preview Assets.xcassets */; };
 		EC1DD49827B6D97E003CF91D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC1DD49627B6D97E003CF91D /* LaunchScreen.storyboard */; };
+		EC1DD4A127B6DA7C003CF91D /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1DD4A027B6DA7C003CF91D /* Navigator.swift */; };
+		EC1DD4A427B6DBEE003CF91D /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1DD4A327B6DBEE003CF91D /* FormView.swift */; };
+		EC1DD4A727B6DBFB003CF91D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1DD4A627B6DBFB003CF91D /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		EC1DD49427B6D97E003CF91D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EC1DD49727B6D97E003CF91D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC1DD49927B6D97E003CF91D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC1DD4A027B6DA7C003CF91D /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		EC1DD4A327B6DBEE003CF91D /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		EC1DD4A627B6DBFB003CF91D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				EC1DD49627B6D97E003CF91D /* LaunchScreen.storyboard */,
 				EC1DD49927B6D97E003CF91D /* Info.plist */,
 				EC1DD49327B6D97E003CF91D /* Preview Content */,
+				EC1DD4A027B6DA7C003CF91D /* Navigator.swift */,
+				EC1DD4A327B6DBEE003CF91D /* FormView.swift */,
+				EC1DD4A627B6DBFB003CF91D /* CardView.swift */,
 			);
 			path = Ej04_Esther_Lenador;
 			sourceTree = "<group>";
@@ -146,7 +155,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC1DD48C27B6D973003CF91D /* AppDelegate.swift in Sources */,
+				EC1DD4A127B6DA7C003CF91D /* Navigator.swift in Sources */,
+				EC1DD4A427B6DBEE003CF91D /* FormView.swift in Sources */,
 				EC1DD48E27B6D973003CF91D /* SceneDelegate.swift in Sources */,
+				EC1DD4A727B6DBFB003CF91D /* CardView.swift in Sources */,
 				EC1DD49027B6D973003CF91D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
