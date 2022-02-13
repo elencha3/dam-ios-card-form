@@ -48,9 +48,6 @@ struct FormView: View {
                     TextField("Dirección", text:$userInfo.adress)
                 }
                 
-                Button("Crear tarjeta"){
-                    checkName()
-                }
             } .font(Font.custom("Montserrat-Light", size: 20))
         }
         
