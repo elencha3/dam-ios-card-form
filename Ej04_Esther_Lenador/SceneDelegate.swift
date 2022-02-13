@@ -11,6 +11,9 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    //To share userInfo
+    var userInfo = UserInfo()
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -24,7 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            //Add environmentObject to share with all the views 
+            window.rootViewController = UIHostingController(rootView: contentView.environmentObject(userInfo))
             self.window = window
             window.makeKeyAndVisible()
         }

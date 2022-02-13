@@ -3,15 +3,19 @@
 import SwiftUI
 
 struct CardView: View {
+    @EnvironmentObject var userInfo: UserInfo
+    
     @State private var bgColor = Color.green
     @State var fontArray = ["PartyLetPlain", "Helvetica","Palatino-Roman", "NotoNastaliqUrdu", "Kailasa"]
     @State private var selectedIndex = 0
     @State private var customFont = "Montserrat-Medium"
     
+    @State var flipped = false // state variable used to update the card
+    
     
     var body: some View {
         VStack  {
-            VStack {
+            ZStack {
                 VStack {
                     Text("E")
                         .font(.largeTitle)
@@ -20,17 +24,35 @@ struct CardView: View {
                         .clipShape(Circle())
                         .padding()
                     VStack(alignment: .leading) {
-                        Text("Nombre")
-                        Text("Puesto de trabajo")
+                        if !flipped {
+                            Text(userInfo.name)
+                            Text(userInfo.job)
+                        } else {
+                            Text(userInfo.phone)
+                            Text(userInfo.email)
+                            Text(userInfo.adress)
+                        }
                     }
                 }.frame(width:300, height: 200)
                 .padding()
                 .background(bgColor)
-                .shadow(radius: 5)
-                .cornerRadius(8)
+                .cornerRadius(16)
+                .shadow(color: Color.gray, radius: 16, x:14, y:14)
+                .rotation3DEffect(Angle(degrees:self.flipped ? 180 : 0), axis: (x:0,y:1,z:0))
+                .onTapGesture {
+                    withAnimation(.easeIn(duration: 0.5)){
+                        self.flipped.toggle()
+                    }
+                }
                 
             }.padding(.top, 60)
             .font(Font.custom(customFont, size: 20))
+            .rotation3DEffect(Angle(degrees:self.flipped ? 180 : 0), axis: (x:0,y:1,z:0))
+            .onTapGesture {
+                withAnimation(.easeIn(duration: 0.5)){
+                    self.flipped.toggle()
+                }
+            }
             Divider().frame(height: 10)
             Text("Personaliza tu tarjeta")
                 .font(Font.custom("Montserrat-Light", size: 30))
@@ -74,6 +96,8 @@ struct CardView: View {
         }.font(Font.custom("Montserrat-Light", size: 20))
     }
 }
+
+
 
 
 struct CardView_Previews: PreviewProvider {
