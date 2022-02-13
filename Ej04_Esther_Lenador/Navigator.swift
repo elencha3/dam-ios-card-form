@@ -21,6 +21,7 @@ struct Navigator: View {
     }
 }
 
+
 struct Navigator_Previews: PreviewProvider {
     static var previews: some View {
         Navigator()
