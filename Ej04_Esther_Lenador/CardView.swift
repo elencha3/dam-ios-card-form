@@ -6,6 +6,7 @@ struct CardView: View {
     @EnvironmentObject var userInfo: UserInfo
     
     @State private var bgColor = Color(.systemIndigo)
+    @State private var fgColor = Color(.black)
     @State var fontArray = ["PartyLetPlain", "Helvetica","Palatino-Roman", "NotoNastaliqUrdu", "Kailasa"]
     
     
@@ -46,6 +47,7 @@ struct CardView: View {
                     }
                 }.frame(width:300, height: 200)
                 .padding()
+                .foregroundColor(fgColor)
                 .background(bgColor)
                 .cornerRadius(16)
                 .shadow(color: Color.gray, radius: 16, x:14, y:14)
@@ -68,28 +70,39 @@ struct CardView: View {
             
             Text("Personaliza tu tarjeta")
                 .font(Font.custom("Montserrat-Light", size: 30))
-            HStack {
-                ForEach(colorArray, id:\.self) { color in
-                    Circle()
-                        .frame(width:50, height:50)
-                        .foregroundColor(color)
-                        .onTapGesture {
-                            bgColor = color
+            VStack {
+                HStack {
+                    ForEach(colorArray, id:\.self) { color in
+                        Circle()
+                            .frame(width:50, height:50)
+                            .foregroundColor(color)
+                            .onTapGesture {
+                                bgColor = color
+                            }
+                    }
+                }
+                VStack {
+                    ColorPicker("Más colores de fondo", selection: $bgColor).frame(width:300, height:30)
+                    ColorPicker("Color de texto", selection: $fgColor).frame(width:300, height:20)
+                }.font(Font.custom("Montserrat-Light", size: 15))
+            }
+            
+            List {
+                
+               
+                HStack {
+                    Text("Fuente personalizada")
+                    Picker("Selecciona ", selection:$customFont) {
+                        ForEach(fontArray, id:\.self) {
+                            Text($0)
                         }
-                    
+                    }.pickerStyle(MenuPickerStyle())
                 }
             }
             
-            ColorPicker("Color personalizado", selection: $bgColor).frame(width:300, height:100)
-            HStack {
-                Text("Fuente personalizada")
-                Picker("Selecciona ", selection:$customFont) {
-                    ForEach(fontArray, id:\.self) {
-                        Text($0)
-                    }
-                }.pickerStyle(MenuPickerStyle())
-            }
+            
             Spacer()
+            
         }.font(Font.custom("Montserrat-Light", size: 20))
     }
 }
