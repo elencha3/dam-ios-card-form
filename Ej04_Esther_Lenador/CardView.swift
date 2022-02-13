@@ -5,8 +5,18 @@ import SwiftUI
 struct CardView: View {
     @EnvironmentObject var userInfo: UserInfo
     
-    @State private var bgColor = Color.green
+    @State private var bgColor = Color(.systemIndigo)
     @State var fontArray = ["PartyLetPlain", "Helvetica","Palatino-Roman", "NotoNastaliqUrdu", "Kailasa"]
+    
+    
+    @State var colorArray = [
+        Color(.systemIndigo),
+        Color(.systemGreen),
+        Color(.systemTeal),
+        Color(.systemPink),
+        
+    ]
+    
     @State private var selectedIndex = 0
     @State private var customFont = "Montserrat-Medium"
     
@@ -17,12 +27,13 @@ struct CardView: View {
         VStack  {
             ZStack {
                 VStack {
-                    Text("E")
+                    Text(userInfo.name.prefix(1))
                         .font(.largeTitle)
                         .frame(width: 80, height: 80)
                         .background(Color.white)
                         .clipShape(Circle())
                         .padding()
+                    Spacer().frame(height:10)
                     VStack(alignment: .leading) {
                         if !flipped {
                             Text(userInfo.name)
@@ -53,36 +64,22 @@ struct CardView: View {
                     self.flipped.toggle()
                 }
             }
-            Divider().frame(height: 10)
+            Divider().frame(height: 30)
+            
             Text("Personaliza tu tarjeta")
                 .font(Font.custom("Montserrat-Light", size: 30))
             HStack {
-                Circle()
-                    .frame(width:50, height:50)
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                    .onTapGesture {
-                        bgColor = Color.blue
-                    }
-                Circle()
-                    .frame(width:50, height:50)
-                    .foregroundColor(.green)
-                    .onTapGesture {
-                        bgColor = Color.green
-                    }
-                Circle()
-                    .frame(width:50, height:50)
-                    .foregroundColor(.red)
-                    .onTapGesture {
-                        bgColor = Color.red
-                    }
-                Circle()
-                    .frame(width:50, height:50)
-                    .foregroundColor(.yellow)
-                    .onTapGesture {
-                        bgColor = Color.yellow
-                    }
-                
-            }.padding(.top, 15)
+                ForEach(colorArray, id:\.self) { color in
+                    Circle()
+                        .frame(width:50, height:50)
+                        .foregroundColor(color)
+                        .onTapGesture {
+                            bgColor = color
+                        }
+                    
+                }
+            }
+            
             ColorPicker("Color personalizado", selection: $bgColor).frame(width:300, height:100)
             HStack {
                 Text("Fuente personalizada")
