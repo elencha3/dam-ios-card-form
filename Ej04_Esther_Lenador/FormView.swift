@@ -35,7 +35,6 @@ struct FormView: View {
                 
                 Text("Diseña tu tarjeta de visita")
                     .font(Font.custom(("Montserrat-Light"), size: 30))
-                   
                     .shadow(color: .gray, radius: 1, x:0.1, y: 1)
             }
   
