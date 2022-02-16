@@ -25,6 +25,7 @@ struct CardView: View {
     @State var flipped = false // state variable used to update the card
     
     
+    
     var body: some View {
         VStack  {
             VStack {
@@ -80,8 +81,9 @@ struct CardView: View {
                 HStack {
                     ForEach(colorArray, id:\.self) { color in
                         Circle()
-                            .frame(width:50, height:50)
-                            .foregroundColor(color)
+                            .strokeBorder(bgColor == color ? Color.black : Color.clear, lineWidth: 2)
+                            .background(Circle().fill(color))
+                            .frame(width: 50, height: 50)
                             .onTapGesture {
                                 bgColor = color
                             }
@@ -112,7 +114,6 @@ struct CardView: View {
                 
             }.padding(.top, 30)
             Spacer()
-            
         }.font(Font.custom("Montserrat-Light", size: 20))
     }
 }
