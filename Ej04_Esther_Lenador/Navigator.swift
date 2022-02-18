@@ -4,11 +4,11 @@ import SwiftUI
 
 struct Navigator: View {
     
-    @State var showMainView:Bool = false
+    @State var showSplash:Bool = false
     
     var body: some View {
         VStack {
-            if self.showMainView {
+            if self.showSplash {
                 TabView{
                     FormView()
                         .tabItem {
@@ -32,13 +32,11 @@ struct Navigator: View {
             // showMainView variable
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 withAnimation {
-                    self.showMainView = true
+                    self.showSplash = true
                 }
             }
         }
-        
     }
-    
 }
 
 
