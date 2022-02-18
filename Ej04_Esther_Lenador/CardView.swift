@@ -3,11 +3,13 @@
 import SwiftUI
 
 struct CardView: View {
+    
     @EnvironmentObject var userInfo: UserInfo
     
     @State private var bgColor = Color(.systemIndigo)
     @State private var fgColor = Color(.black)
     @State private var bgCircleColor = Color(.white)
+    
     @State var fontArray = ["PartyLetPlain", "Galvji","Palatino-Roman", "GillSans", "Kailasa","Didot", "Copperplate"]
     
     
@@ -27,15 +29,18 @@ struct CardView: View {
     
     
     var body: some View {
+        
+        /*SCROLL VIEW to make view responsive in landscape*/
         ScrollView {
-            VStack  {
+            VStack {
                 VStack {
                     Text("Personaliza tu tarjeta")
                         .font(Font.custom("Montserrat-Light", size: 30))
                         .padding(.top,30)
                     ZStack {
                         VStack {
-                            Text(userInfo.name.prefix(1))
+                            userInfo.name.isEmpty ? Text("¿?") : Text(userInfo.name.prefix(1))
+                            
                                 .font(.largeTitle)
                                 .frame(width: 80, height: 80)
                                 .background(bgCircleColor)
@@ -44,12 +49,21 @@ struct CardView: View {
                             Spacer().frame(height:5)
                             VStack(alignment: .leading) {
                                 if !flipped {
-                                    Text(userInfo.name + " " + userInfo.surname)
-                                    Text(userInfo.job)
+                                    userInfo.name.isEmpty ? Text("Nombre y apellidos") : Text(userInfo.name)
+                                    userInfo.job.isEmpty ? Text("Trabajo") : Text(userInfo.job)
                                 } else {
-                                    Text(userInfo.phone)
-                                    Text(userInfo.email)
-                                    Text(userInfo.adress)
+                                    HStack{
+                                        Image(systemName: "phone")
+                                        userInfo.phone.isEmpty ? Text("Teléfono") : Text(userInfo.phone)
+                                    }
+                                    HStack{
+                                        Image(systemName: "envelope")
+                                        userInfo.email.isEmpty ? Text("Email") : Text(userInfo.email)
+                                    }
+                                    HStack{
+                                        Image(systemName: "map")
+                                        userInfo.adress.isEmpty ? Text("Dirección") : Text(userInfo.adress)
+                                    }
                                 }
                             }
                         }.frame(width:300, height: 200)
@@ -117,12 +131,9 @@ struct CardView: View {
                 Spacer()
             }.font(Font.custom("Montserrat-Light", size: 20))
         }
-        }
-        
+    }
+    
 }
-
-
-
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
