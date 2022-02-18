@@ -25,7 +25,8 @@ struct Navigator: View {
                 Text("Create Your Card")
                     .foregroundColor(Color.yellow)
                     .font(Font.custom(("Montserrat-Light"), size: 100))
-                    .bold()
+                    .shadow(color: .gray, radius: 0.3, x:0.1, y: 1)
+                   
             }
         }.onAppear {
             // after three seconds, system will change the value of the

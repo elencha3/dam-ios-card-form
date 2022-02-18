@@ -37,6 +37,9 @@ struct FormView: View {
                     Text("Información personal")
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                         .font(Font.custom(("Montserrat-Medium"), size: 20))
+                        .foregroundColor(.yellow)
+                        .shadow(color: .gray, radius: 0.3, x:0.1, y: 1)
+                        
                     TextField("Nombre", text: $userInfo.name)
                     TextField("Apellidos", text:$userInfo.surname)
                     TextField("Puesto de trabajo", text:$userInfo.job)
@@ -45,6 +48,8 @@ struct FormView: View {
                     Text("Datos de contacto")
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                         .font(Font.custom(("Montserrat-Medium"), size: 20))
+                        .foregroundColor(.yellow)
+                        .shadow(color: .gray, radius: 0.3, x:0.1, y: 1)
                     TextField("Teléfono", text:$userInfo.phone)
                     TextField("Email", text:$userInfo.email)
                     TextField("Dirección", text:$userInfo.adress)
