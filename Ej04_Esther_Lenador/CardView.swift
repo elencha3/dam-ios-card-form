@@ -6,7 +6,7 @@ struct CardView: View {
     
     @EnvironmentObject var userInfo: UserInfo
     
-    @State private var bgColor = Color(.systemIndigo)
+    @State private var bgColor = Color(.yellow)
     @State private var fgColor = Color(.black)
     @State private var bgCircleColor = Color(.white)
     
@@ -14,7 +14,7 @@ struct CardView: View {
     
     
     @State var colorArray = [
-        Color(.systemIndigo),
+        Color(.yellow),
         Color(.systemGreen),
         Color(.systemTeal),
         Color(.systemPink),
