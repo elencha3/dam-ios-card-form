@@ -14,6 +14,7 @@ class UserInfo: ObservableObject {
 
 struct FormView: View {
     
+    //Var to store userInfo fields
     @EnvironmentObject var userInfo: UserInfo
     
     var body: some View {

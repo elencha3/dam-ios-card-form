@@ -4,14 +4,16 @@ import SwiftUI
 
 struct CardView: View {
     
+    //Var with class userInfo to get fields of form
     @EnvironmentObject var userInfo: UserInfo
     
+    //Color vars to change with userinputs
     @State private var bgColor = Color(.yellow)
     @State private var fgColor = Color(.black)
     @State private var bgCircleColor = Color(.white)
     
+    //Array with fonts and arrat with colors to costumize
     @State var fontArray = ["PartyLetPlain", "Galvji","Palatino-Roman", "GillSans", "Kailasa","Didot", "Copperplate"]
-    
     
     @State var colorArray = [
         Color(.yellow),
@@ -26,6 +28,7 @@ struct CardView: View {
     
     @State var flipped = false // state variable used to update the card
     
+    //Switchs to select which fields will appear in card
     @State var nameOn = true
     @State var jobOn = true
     @State var phoneOn = true

@@ -4,6 +4,7 @@ import SwiftUI
 
 struct Navigator: View {
     
+    //Show Splash screen onApppear
     @State var showSplash:Bool = false
     
     var body: some View {
